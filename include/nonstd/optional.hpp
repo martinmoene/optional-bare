@@ -78,8 +78,8 @@ public:
     {
         using std::swap;
         if      ( has_value() == true  && rhs.has_value() == true  ) { swap( **this, *rhs ); }
-        else if ( has_value() == false && rhs.has_value() == true  ) { value = *rhs; rhs.reset(); }
-        else if ( has_value() == true  && rhs.has_value() == false ) { rhs.value = **this; reset(); }
+        else if ( has_value() == false && rhs.has_value() == true  ) { initialize( *rhs ); rhs.reset(); }
+        else if ( has_value() == true  && rhs.has_value() == false ) { rhs.initialize( **this ); reset(); }
     }
 
     // observers
@@ -149,6 +149,14 @@ public:
 
 private:
     void this_type_does_not_support_comparisons() const {}
+
+    template< typename V >
+    void initialize( V const & value )
+    {
+        assert( ! has_value()  );
+        value_ = value;
+        has_value_ = true;
+    }
 
 private:
     bool has_value_;
