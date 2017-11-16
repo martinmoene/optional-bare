@@ -5,6 +5,11 @@
 		<Option title="Optional Bare" />
 		<Option compiler="gcc" />
 		<Build>
+			<Target title="default">
+				<Option output="optional-bare" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
 		</Build>
 		<Unit filename="../../.gitattributes" />
 		<Unit filename="../../.gitignore" />
@@ -15,14 +20,12 @@
 		<Unit filename="../../README.md" />
 		<Unit filename="../../appveyor.yml" />
 		<Unit filename="../../examples/01-to_int.cpp" />
-		<Unit filename="../../examples/02-nodefltctor.cpp" />
-		<Unit filename="../../examples/04-any-optional-variant.cpp" />
 		<Unit filename="../../include/nonstd/optional.hpp" />
 		<Unit filename="../../test/CMakeLists.txt" />
 		<Unit filename="../../test/Makefile" />
 		<Unit filename="../../test/lest_cpp03.hpp" />
-		<Unit filename="../../test/optional-lite.t.cpp" />
-		<Unit filename="../../test/optional-lite.t.h" />
+		<Unit filename="../../test/optional-bare.t.cpp" />
+		<Unit filename="../../test/optional-bare.t.h" />
 		<Unit filename="../../test/optional.t.cpp" />
 		<Unit filename="../../test/t.bat" />
 		<Unit filename="../../test/tc.bat" />
