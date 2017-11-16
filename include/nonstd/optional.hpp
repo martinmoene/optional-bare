@@ -65,12 +65,26 @@ public:
 
     optional( T const & arg )
     : has_value_( true )
-    , value_    ( arg   )
+    , value_    ( arg  )
+    {}
+
+    template< class U >
+    optional( optional<U> const & other )
+    : has_value_( other.has_value() )
+    , value_    ( other.value()     )
     {}
 
     optional & operator=( nullopt_t )
     {
         reset();
+        return *this;
+    }
+
+    template< class U >
+    optional & operator=( optional<U> const & other )
+    {
+        has_value_ = other.has_value();
+        value_     = other.value();
         return *this;
     }
 
