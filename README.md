@@ -1,6 +1,6 @@
 optional bare - A simple single-file header-only version of a C++17-like optional for default-constructible, copyable types, for C++98 and later
 ====================================================
-[![Language](https://img.shields.io/badge/language-C++-blue.svg)](https://isocpp.org/)  [![Standard](https://img.shields.io/badge/c%2B%2B-98-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B#Standardization) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://travis-ci.org/martinmoene/optional-bare.svg?branch=master)](https://travis-ci.org/martinmoene/optional-bare) [![Build status](https://ci.appveyor.com/api/projects/status/xl1lrm4cfdi08431?svg=true)](https://ci.appveyor.com/project/martinmoene/optional-bare) [![Version](https://badge.fury.io/gh/martinmoene%2Foptional-bare.svg)](https://github.com/martinmoene/optional-bare/releases) [![download](https://img.shields.io/badge/latest%20version%20%20-download-blue.svg)](https://raw.githubusercontent.com/martinmoene/optional-bare/master/include/nonstd/optional.hpp) [![Try it online](https://img.shields.io/badge/try%20it-online-blue.svg)](https://wandbox.org/permlink/xxxxxxxxxxx)
+[![Language](https://img.shields.io/badge/language-C++-blue.svg)](https://isocpp.org/)  [![Standard](https://img.shields.io/badge/c%2B%2B-98-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B#Standardization) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://travis-ci.org/martinmoene/optional-bare.svg?branch=master)](https://travis-ci.org/martinmoene/optional-bare) [![Build status](https://ci.appveyor.com/api/projects/status/xl1lrm4cfdi08431?svg=true)](https://ci.appveyor.com/project/martinmoene/optional-bare) [![Version](https://badge.fury.io/gh/martinmoene%2Foptional-bare.svg)](https://github.com/martinmoene/optional-bare/releases) [![download](https://img.shields.io/badge/latest%20version%20%20-download-blue.svg)](https://raw.githubusercontent.com/martinmoene/optional-bare/master/include/nonstd/optional.hpp) [![Try it online](https://img.shields.io/badge/try%20it-online-blue.svg)](https://wandbox.org/permlink/YAWZ1gyu1zDFGh9V)
 
 **Contents**  
 - [Example usage](#example-usage)
@@ -78,7 +78,9 @@ Synopsis
 --------
 For the interface of `std::optional`, see [cppreference](http://en.cppreference.com/w/cpp/utility/optional).
 
-*optional bare* uses C++98 only, it does not differentiate its compatibility with `std::optional` based on compiler and standard library support. The following table lists what is **not provided** by *optional bare*.
+*optional bare* uses C++98 only, it does not differentiate its compatibility with `std::optional` based on compiler and standard library support of C++11 and later. *optional bare* does not control whether functions participate in overload resolution based on the value type.
+
+The following table gives an overview of what is **not provided** by *optional bare*.
 
 | Kind | Item             | Remark |
 |------|------------------|--------|
@@ -91,10 +93,13 @@ For the interface of `std::optional`, see [cppreference](http://en.cppreference.
 | Member functions |&nbsp;|&nbsp;| 
 | &emsp;Construction | optional( optional&& other ) |&nbsp;|
 |&nbsp;| template &lt;class U><br>optional( optional&lt;U>&& other ) |&nbsp;|
+|&nbsp;| template&lt;class U = value_type><br>optional( U&& value ) |provides optional( T const & )|
 |&nbsp;| template&lt;...><br>optional( std::in_place_t, ...) |&nbsp;|
-|&nbsp;| template&lt;class U = value_type><br>optional( U&& value ) |&nbsp;|
+| &emsp;Assignment | optional & operator=( optional&& other ) |&nbsp;|
+|&nbsp;| template &lt;class U><br>optional & operator=( optional&lt;U>&& other ) |&nbsp;|
+|&nbsp;| template&lt;class U = value_type><br>optional & operator=( U&& value ) |provides operator=( T const & )|
 | &emsp;Modifiers | template&lt;...><br>T& emplace(...)  | move-semantics not supported |
-| Non-member functions | template&lt;...><br>optional&lt;T> make_optional(  ... && ) |only for value_type, no forwarding |
+| Non-member functions | template&lt;...><br>optional&lt;T> make_optional(  ... && ) |no forwarding, only provides<br>make_optional( T const & )|
 | Other | std::hash&lt;nonstd::optional> | std::hash<> requires C++11|
 
 
