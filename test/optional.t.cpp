@@ -325,7 +325,7 @@ CASE( "optional: Allows to reset content" )
 // optional non-member functions:
 //
 
-CASE( "optional: Allows to swaps engage state and values (non-member)" )
+CASE( "optional: Allows to swap engage state and values (non-member)" )
 {
     SETUP( "" ) {
         optional<int> d1;
