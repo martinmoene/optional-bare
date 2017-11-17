@@ -179,37 +179,38 @@ private:
 
 // Relational operators
 
-template< typename T >
-inline bool operator==( optional<T> const & x, optional<T> const & y )
+template< typename T, typename U >
+inline bool operator==( optional<T> const & x, optional<U> const & y )
 {
     return bool(x) != bool(y) ? false : bool(x) == false ? true : *x == *y;
 }
 
-template< typename T >
-inline bool operator!=( optional<T> const & x, optional<T> const & y )
+template< typename T, typename U >
+inline bool operator!=( optional<T> const & x, optional<U> const & y )
 {
     return !(x == y);
 }
 
-template< typename T >
-inline bool operator<( optional<T> const & x, optional<T> const & y )
+template< typename T, typename U >
+inline bool operator<( optional<T> const & x, optional<U> const & y )
 {
     return (!y) ? false : (!x) ? true : *x < *y;
 }
 
-template< typename T >
-inline bool operator>( optional<T> const & x, optional<T> const & y )
+template< typename T, typename U >
+inline bool operator>( optional<T> const & x, optional<U> const & y )
 {
     return (y < x);
 }
 
-template< typename T >
-inline bool operator<=( optional<T> const & x, optional<T> const & y )
+template< typename T, typename U >
+inline bool operator<=( optional<T> const & x, optional<U> const & y )
 {
     return !(y < x);
 }
 
-template< typename T > inline bool operator>=( optional<T> const & x, optional<T> const & y )
+template< typename T, typename U >
+inline bool operator>=( optional<T> const & x, optional<U> const & y )
 {
     return !(x < y);
 }
@@ -290,74 +291,74 @@ inline bool operator>=( nullopt_t, optional<T> const & x )
 
 // Comparison with T
 
-template< typename T >
-inline bool operator==( optional<T> const & x, const T& v )
+template< typename T, typename U >
+inline bool operator==( optional<T> const & x, U const & v )
 {
     return bool(x) ? *x == v : false;
 }
 
-template< typename T >
-inline bool operator==( T const & v, optional<T> const & x )
+template< typename T, typename U >
+inline bool operator==( U const & v, optional<T> const & x )
 {
     return bool(x) ? v == *x : false;
 }
 
-template< typename T >
-inline bool operator!=( optional<T> const & x, const T& v )
+template< typename T, typename U >
+inline bool operator!=( optional<T> const & x, U const & v )
 {
     return bool(x) ? *x != v : true;
 }
 
-template< typename T >
-inline bool operator!=( T const & v, optional<T> const & x )
+template< typename T, typename U >
+inline bool operator!=( U const & v, optional<T> const & x )
 {
     return bool(x) ? v != *x : true;
 }
 
-template< typename T >
-inline bool operator<( optional<T> const & x, const T& v )
+template< typename T, typename U >
+inline bool operator<( optional<T> const & x, U const & v )
 {
     return bool(x) ? *x < v : true;
 }
 
-template< typename T >
-inline bool operator<( T const & v, optional<T> const & x )
+template< typename T, typename U >
+inline bool operator<( U const & v, optional<T> const & x )
 {
     return bool(x) ? v < *x : false;
 }
 
-template< typename T >
-inline bool operator<=( optional<T> const & x, const T& v )
+template< typename T, typename U >
+inline bool operator<=( optional<T> const & x, U const & v )
 {
     return bool(x) ? *x <= v : true;
 }
 
-template< typename T >
-inline bool operator<=( T const & v, optional<T> const & x )
+template< typename T, typename U >
+inline bool operator<=( U const & v, optional<T> const & x )
 {
     return bool(x) ? v <= *x : false;
 }
 
-template< typename T >
-inline bool operator>( optional<T> const & x, const T& v )
+template< typename T, typename U >
+inline bool operator>( optional<T> const & x, U const & v )
 {
     return bool(x) ? *x > v : false;
 }
 
-template< typename T >
-inline bool operator>( T const & v, optional<T> const & x )
+template< typename T, typename U >
+inline bool operator>( U const & v, optional<T> const & x )
 {
     return bool(x) ? v > *x : true;
 }
 
-template< typename T >
-inline bool operator>=( optional<T> const & x, const T& v )
+template< typename T, typename U >
+inline bool operator>=( optional<T> const & x, U const & v )
 {
     return bool(x) ? *x >= v : false;
 }
 
-template< typename T >
-inline bool operator>=( T const & v, optional<T> const & x )
+template< typename T, typename U >
+inline bool operator>=( U const & v, optional<T> const & x )
 {
     return bool(x) ? v >= *x : true;
 }

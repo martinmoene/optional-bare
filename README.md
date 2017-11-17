@@ -185,5 +185,6 @@ optional: Throws bad_optional_access at disengaged access
 optional: Allows to reset content
 optional: Allows to swap engage state and values (non-member)
 optional: Provides relational operators
+optional: Provides mixed-type relational operators
 make_optional: Allows to copy-construct optional
 ```
