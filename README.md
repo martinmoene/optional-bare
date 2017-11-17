@@ -146,11 +146,15 @@ Notes and references
 
 [4] Andrzej Krzemieński. [optional (nullable) objects for C++14](https://github.com/akrzemi1/Optional). Reference implementation on GitHub.
 
-[5] Fernando Cacciola. [Boost.Optional library](http://www.boost.org/doc/libs/1_49_0/libs/optional/doc/html/index.html).
+[5] Simon Brand. [P0798R0: Monadic operations for std::optional](https://wg21.tartanllama.xyz/monadic-optional).
 
-[6] StackOverflow. [How should one use std::optional?](http://stackoverflow.com/a/16861022). Answer by Timothy Shields. 31 May 2013.
+[6] Simon Brand. [C++11/14/17 std::optional with functional-style extensions ](https://github.com/TartanLlama/optional). Reference implementation on GitHub.
 
-[7] Fernando Cacciola. [Boost.Optional Quick start guide](http://www.boost.org/doc/libs/1_57_0/libs/optional/doc/html/boost_optional/quick_start.html).
+[7] Fernando Cacciola. [Boost.Optional library](http://www.boost.org/doc/libs/1_49_0/libs/optional/doc/html/index.html).
+
+[8] StackOverflow. [How should one use std::optional?](http://stackoverflow.com/a/16861022). Answer by Timothy Shields. 31 May 2013.
+
+[9] Fernando Cacciola. [Boost.Optional Quick start guide](http://www.boost.org/doc/libs/1_57_0/libs/optional/doc/html/boost_optional/quick_start.html).
 
 
 Appendix
