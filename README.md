@@ -50,7 +50,7 @@ prompt>g++ -Wall -Wextra -std=c++03 -I.. -o to_int.exe to_int.cpp && to_int x1
 ```
 In a nutshell
 ---------------
-**optional bare** is a single-file header-only library to represent optional (nullable) objects and pass them by value. The library aims to provide a [C++17-like optional](http://en.cppreference.com/w/cpp/utility/optional) for default-constructible and copyable types for use with C++98 and later. *optional bare* is derived from [optional lite](https://github.com/martinmoene/optional-lite).
+**optional bare** is a single-file header-only library to represent optional (nullable) objects and pass them by value. *optional bare* is derived from [optional lite](https://github.com/martinmoene/optional-lite). Like *optional like*, *optional bare* aims to provide a [C++17-like optional](http://en.cppreference.com/w/cpp/utility/optional) for use with C++98 and later. Unlike *optional lite*, *optional bare* is limited to default-constructible and copyable types. 
 
 **Features and properties of optional bare** are ease of installation (single header), freedom of dependencies other than the standard library.
 
