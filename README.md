@@ -61,7 +61,7 @@ For more examples, see [this answer on StackOverflow](http://stackoverflow.com/a
 
 License
 -------
-*variant bare* uses the [MIT](LICENSE) license.
+*optional bare* uses the [MIT](LICENSE) license.
  
 
 Dependencies
