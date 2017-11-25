@@ -3,12 +3,12 @@
 # Distributed under the Boost Software License, Version 1.0. (See accompanying
 # file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 #
-# optional lite is inspired on std::optional by Fernando Cacciola and 
+# optional lite is inspired on std::optional by Fernando Cacciola and
 # Andrzej Krzemienski and on expected lite by Martin Moene.
 
 # Usage: gmake [STD=c++03]
 
-PROGRAM = optional.t
+PROGRAM = optional-bare.t.exe
 SOURCES = $(wildcard *.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
@@ -17,7 +17,7 @@ STD_OPTION = -std=$(STD)
 endif
 
 CXX = g++
-CXXFLAGS = $(STD_OPTION) -Wall  # -Wextra 
+CXXFLAGS = $(STD_OPTION) -Wall -I../include/nonstd/ # -Wextra
 
 all: $(PROGRAM)
 
