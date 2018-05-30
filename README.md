@@ -82,25 +82,25 @@ For the interface of `std::optional`, see [cppreference](http://en.cppreference.
 
 The following table gives an overview of what is **not provided** by *optional bare*.
 
-| Kind | Item             | Remark |
-|------|------------------|--------|
-| Types| in_place_t       |move-semantics not supported|
-|&nbsp;| in_place_type_t  |&nbsp;|
-|&nbsp;| in_place_index_t |&nbsp;|
-| Tags | in_place         |&nbsp;|
-|&nbsp;| in_place_type    |&nbsp;|
-|&nbsp;| in_place_index   |&nbsp;|
-| Member functions |&nbsp;|&nbsp;| 
-| &emsp;Construction | optional( optional&& other ) |&nbsp;|
-|&nbsp;| template &lt;class U><br>optional( optional&lt;U>&& other ) |&nbsp;|
-|&nbsp;| template&lt;class U = value_type><br>optional( U&& value ) |provides optional( T const & )|
-|&nbsp;| template&lt;...><br>optional( std::in_place_t, ...) |&nbsp;|
-| &emsp;Assignment | optional & operator=( optional&& other ) |&nbsp;|
-|&nbsp;| template &lt;class U><br>optional & operator=( optional&lt;U>&& other ) |&nbsp;|
-|&nbsp;| template&lt;class U = value_type><br>optional & operator=( U&& value ) |provides operator=( T const & )|
-| &emsp;Modifiers | template&lt;...><br>T& emplace(...)  | move-semantics not supported |
-| Non-member functions | template&lt;...><br>optional&lt;T> make_optional(  ... && ) |no forwarding, only provides<br>make_optional( T const & )|
-| Other | std::hash&lt;nonstd::optional> | std::hash<> requires C++11|
+| Kind         | Item                 | Remark |
+|--------------|----------------------|--------|
+| **Types**    | **in_place_t**       |move-semantics not supported|
+|&nbsp;        | **in_place_type_t**  |&nbsp;|
+|&nbsp;        | **in_place_index_t** |&nbsp;|
+| **Tags**     | **in_place**         |&nbsp;|
+|&nbsp;        | **in_place_type**    |&nbsp;|
+|&nbsp;        | **in_place_index**   |&nbsp;|
+| **Methods**  |&nbsp;|&nbsp;| 
+| Construction | **optional**( optional&& other ) |&nbsp;|
+|&nbsp;        | template &lt;class U><br>**optional**( optional&lt;U>&& other ) |&nbsp;|
+|&nbsp;        | template&lt;class U = value_type><br>**optional**( U&& value ) |provides optional( T const & )|
+|&nbsp;        | template&lt;...><br>**optional**( std::in_place_t, ...) |&nbsp;|
+| Assignment   | optional & **operator=**( optional&& other ) |&nbsp;|
+|&nbsp;        | template &lt;class U><br>optional & **operator=**( optional&lt;U>&& other ) |&nbsp;|
+|&nbsp;        | template&lt;class U = value_type><br>optional & **operator=**( U&& value ) |provides operator=( T const & )|
+| Modifiers    | template&lt;...><br>T& **emplace**(...)  | move-semantics not supported |
+| **Free functions** | template&lt;...><br>optional&lt;T> **make_optional**(  ... && ) |no forwarding, only provides<br>make_optional( T const & )|
+| **Other**    | std::**hash**&lt;nonstd::optional> | std::hash<> requires C++11|
 
 
 Building the tests
