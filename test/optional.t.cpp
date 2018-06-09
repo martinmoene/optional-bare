@@ -1,13 +1,13 @@
 //
 // Copyright 2017-2018 by Martin Moene
 //
-// Distributed under the Boost Software License, Version 1.0. 
+// Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
 // optional bare is derived from optional lite. optional lite is inspired on std::optional
 // by Fernando Cacciola and  Andrzej Krzemienski and on expected lite by Martin Moene.
 
-#include "optional-bare.t.h"
+#include "optional-main.t.h"
 
 using nonstd::optional;
 using nonstd::nullopt;
@@ -26,7 +26,7 @@ struct S
 {
     S( int v )
     : value( v ) {}
-    
+
     int value;
 };
 
@@ -186,7 +186,7 @@ CASE( "optional: Allows to copy-assign from value" )
 CASE( "optional: Allows to copy-assign from optional with different value type" )
 {
     optional<int> a;
-    
+
     a = optional<char>( 7 );
 
     EXPECT(  a      );

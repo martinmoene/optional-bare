@@ -8,7 +8,7 @@
 
 # Usage: gmake [STD=c++03]
 
-PROGRAM = optional-bare.t.exe
+PROGRAM = optional-main.t.exe
 SOURCES = $(wildcard *.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
