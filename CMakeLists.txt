@@ -9,8 +9,8 @@ cmake_minimum_required( VERSION 3.0 )
 
 # Enable building and performing of tests and building of examples:
 
-option( OPTIONAL_BARE_OPT_BUILD_TESTS    "Build and perform xxx-lite tests" ON )
-option( OPTIONAL_BARE_OPT_BUILD_EXAMPLES "Build xxx-lite examples" OFF )
+option( OPTIONAL_BARE_OPT_BUILD_TESTS    "Build and perform optional-bare tests" ON )
+option( OPTIONAL_BARE_OPT_BUILD_EXAMPLES "Build optional-bare examples" OFF )
 
 project( optional_bare )
 
