@@ -12,7 +12,7 @@ cmake_minimum_required( VERSION 3.0 )
 option( OPTIONAL_BARE_OPT_BUILD_TESTS    "Build and perform optional-bare tests" ON )
 option( OPTIONAL_BARE_OPT_BUILD_EXAMPLES "Build optional-bare examples" OFF )
 
-project( optional_bare )
+project( optional_bare LANGUAGES CXX )
 
 set( package_name "optional-bare" )
 set( include_source_dir "${PROJECT_SOURCE_DIR}/include" )
