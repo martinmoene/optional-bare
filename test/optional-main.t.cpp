@@ -31,14 +31,17 @@ lest::tests & specification()
     return tests;
 }
 
+CASE( "optional-bare version" "[.version]" )
+{
+    optional_PRESENT( optional_bare_MAJOR );
+    optional_PRESENT( optional_bare_MINOR );
+    optional_PRESENT( optional_bare_PATCH );
+    optional_PRESENT( optional_bare_VERSION );
+}
+
 CASE( "__cplusplus" "[.stdc++]" )
 {
     optional_PRESENT( __cplusplus );
-}
-
-CASE( "optional-bare version" "[.version]" )
-{
-    optional_PRESENT( optional_bare_VERSION );
 }
 
 CASE( "compiler version" "[.compiler]" )

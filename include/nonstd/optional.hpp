@@ -9,7 +9,14 @@
 #ifndef NONSTD_OPTIONAL_BARE_HPP
 #define NONSTD_OPTIONAL_BARE_HPP
 
-#define optional_bare_VERSION "1.0.0"
+#define optional_bare_MAJOR  1
+#define optional_bare_MINOR  0
+#define optional_bare_PATCH  0
+
+#define optional_bare_VERSION  optional_STRINGIFY(optional_bare_MAJOR) "." optional_STRINGIFY(optional_bare_MINOR) "." optional_STRINGIFY(optional_bare_PATCH)
+
+#define optional_STRINGIFY(  x )  optional_STRINGIFY_( x )
+#define optional_STRINGIFY_( x )  #x
 
 #include <cassert>
 #include <stdexcept>
