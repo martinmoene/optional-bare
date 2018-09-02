@@ -7,6 +7,10 @@
 
 cmake_minimum_required( VERSION 3.5 )
 
+# optional-bare version, updated by script/update-version.py:
+
+set( optional_bare_version "1.0.0" )
+
 # Enable building and performing of tests and building of examples:
 
 option( OPTIONAL_BARE_OPT_BUILD_TESTS    "Build and perform optional-bare tests" ON )
