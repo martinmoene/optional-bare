@@ -43,7 +43,7 @@ if( MSVC )
         set( HAS_CPP17_FLAG TRUE )
     endif()
 
-elseif( CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang" )
+elseif( CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang|AppleClang" )
 
     set( HAS_STD_FLAGS  TRUE )
     set( HAS_CPP98_FLAG TRUE )
@@ -65,7 +65,7 @@ elseif( CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang" )
     endif()
 
     # Clang: available -std flags depends on version
-    if( CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
+    if( CMAKE_CXX_COMPILER_ID MATCHES "Clang|AppleClang" )
         if( NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 3.3.0 )
             set( HAS_CPP11_FLAG TRUE )
         endif()
@@ -136,7 +136,11 @@ else()
     endif()
 
     if( HAS_CPP17_FLAG )
-        make_target( ${MAIN_BASE}-cpp17.t 17 )
+        set( std17 17 )
+        if( CMAKE_CXX_COMPILER_ID MATCHES "AppleClang" )
+            set( std17 1z )
+        endif()
+        make_target( ${MAIN_BASE}-cpp17.t ${std17} )
         enable_msvs_guideline_checker( ${MAIN_BASE}-cpp17.t )
     endif()
 
