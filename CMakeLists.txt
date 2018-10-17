@@ -13,7 +13,7 @@ set( optional_bare_version "1.0.0" )
 
 # Enable building and performing of tests and building of examples:
 
-option( OPTIONAL_BARE_OPT_BUILD_TESTS    "Build and perform optional-bare tests" ON )
+option( OPTIONAL_BARE_OPT_BUILD_TESTS    "Build and perform optional-bare tests" OFF )
 option( OPTIONAL_BARE_OPT_BUILD_EXAMPLES "Build optional-bare examples" OFF )
 
 project( optional_bare LANGUAGES CXX )
@@ -33,7 +33,7 @@ target_include_directories(
 
 # Installation:
 
-install( 
+install(
     DIRECTORY ${CMAKE_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} )
 
 # If requested, build and perform tests, build examples:
