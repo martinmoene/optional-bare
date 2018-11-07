@@ -18,6 +18,88 @@
 #define optional_STRINGIFY(  x )  optional_STRINGIFY_( x )
 #define optional_STRINGIFY_( x )  #x
 
+// optional-bare configuration:
+
+#define optional_OPTIONAL_DEFAULT  0
+#define optional_OPTIONAL_NONSTD   1
+#define optional_OPTIONAL_STD      2
+
+#if !defined( optional_CONFIG_SELECT_OPTIONAL )
+# define optional_CONFIG_SELECT_OPTIONAL  ( optional_HAVE_STD_OPTIONAL ? optional_OPTIONAL_STD : optional_OPTIONAL_NONSTD )
+#endif
+
+// C++ language version detection (C++20 is speculative):
+// Note: VC14.0/1900 (VS2015) lacks too much from C++14.
+
+#ifndef   optional_CPLUSPLUS
+# ifdef  _MSVC_LANG
+#  define optional_CPLUSPLUS  (_MSC_VER == 1900 ? 201103L : _MSVC_LANG )
+# else
+#  define optional_CPLUSPLUS  __cplusplus
+# endif
+#endif
+
+#define optional_CPP98_OR_GREATER  ( optional_CPLUSPLUS >= 199711L )
+#define optional_CPP11_OR_GREATER  ( optional_CPLUSPLUS >= 201103L )
+#define optional_CPP14_OR_GREATER  ( optional_CPLUSPLUS >= 201402L )
+#define optional_CPP17_OR_GREATER  ( optional_CPLUSPLUS >= 201703L )
+#define optional_CPP20_OR_GREATER  ( optional_CPLUSPLUS >= 202000L )
+
+// C++ language version (represent 98 as 3):
+
+#define optional_CPLUSPLUS_V  ( optional_CPLUSPLUS / 100 - (optional_CPLUSPLUS > 200000 ? 2000 : 1994) )
+
+// Use C++17 std::optional if available and requested:
+
+#if optional_CPP17_OR_GREATER && defined(__has_include )
+# if __has_include( <optional> )
+#  define optional_HAVE_STD_OPTIONAL  1
+# else
+#  define optional_HAVE_STD_OPTIONAL  0
+# endif
+#else
+# define  optional_HAVE_STD_OPTIONAL  0
+#endif
+
+#define optional_USES_STD_OPTIONAL  ( (optional_CONFIG_SELECT_OPTIONAL == optional_OPTIONAL_STD) || ((optional_CONFIG_SELECT_OPTIONAL == optional_OPTIONAL_DEFAULT) && optional_HAVE_STD_OPTIONAL) )
+
+//
+// Using std::optional:
+//
+
+#if optional_USES_STD_OPTIONAL
+
+#include <optional>
+#include <utility>
+
+namespace nonstd {
+
+    using std::in_place;
+    using std::in_place_type;
+    using std::in_place_index;
+    using std::in_place_t;
+    using std::in_place_type_t;
+    using std::in_place_index_t;
+
+    using std::optional;
+    using std::bad_optional_access;
+    using std::hash;
+
+    using std::nullopt;
+    using std::nullopt_t;
+
+    using std::operator==;
+    using std::operator!=;
+    using std::operator<;
+    using std::operator<=;
+    using std::operator>;
+    using std::operator>=;
+    using std::make_optional;
+    using std::swap;
+}
+
+#else // optional_USES_STD_OPTIONAL
+
 #include <cassert>
 #include <stdexcept>
 
@@ -384,5 +466,7 @@ inline optional<T> make_optional( T const & v )
 using namespace optional_bare;
 
 } // namespace nonstd
+
+#endif // optional_USES_STD_OPTIONAL
 
 #endif // NONSTD_OPTIONAL_BARE_HPP

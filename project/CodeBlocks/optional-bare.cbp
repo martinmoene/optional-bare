@@ -21,6 +21,7 @@
 		<Unit filename="../../LICENSE.txt" />
 		<Unit filename="../../README.md" />
 		<Unit filename="../../appveyor.yml" />
+		<Unit filename="../../conanfile.py" />
 		<Unit filename="../../examples/01-to_int.cpp" />
 		<Unit filename="../../include/nonstd/optional.hpp" />
 		<Unit filename="../../script/update-version.py" />
@@ -28,7 +29,7 @@
 		<Unit filename="../../test/Makefile" />
 		<Unit filename="../../test/lest_cpp03.hpp" />
 		<Unit filename="../../test/optional-main.t.cpp" />
-		<Unit filename="../../test/optional-main.t.h" />
+		<Unit filename="../../test/optional-main.t.hpp" />
 		<Unit filename="../../test/optional.t.cpp" />
 		<Unit filename="../../test/t.bat" />
 		<Unit filename="../../test/tc.bat" />

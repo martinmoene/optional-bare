@@ -173,6 +173,24 @@ else()
     endif()
 endif()
 
+# with C++17, honour explicit request for std::optional or nonstd::optional:
+
+if( HAS_CPP17_FLAG )
+    set( WHICH optional_OPTIONAL_DEFAULT )
+
+    if( OPTIONAL_BARE_OPT_SELECT_STD )
+        set( WHICH optional_OPTIONAL_STD )
+    elseif( OPTIONAL_BARE_OPT_SELECT_NONSTD )
+        set( WHICH optional_OPTIONAL_NONSTD )
+    endif()
+
+    target_compile_definitions( ${MAIN_BASE}-cpp17.t PRIVATE optional_CONFIG_SELECT_OPTIONAL=${WHICH} )
+
+    if( HAS_CPPLATEST_FLAG )
+        target_compile_definitions( ${MAIN_BASE}-cpplatest.t PRIVATE optional_CONFIG_SELECT_OPTIONAL=${WHICH} )
+    endif()
+endif()
+
 # configure unit tests via CTest:
 
 enable_testing()

@@ -5,7 +5,7 @@
 // Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include "optional-main.t.h"
+#include "optional-main.t.hpp"
 
 #if defined(_MSC_VER) && !defined(__clang__)
 # define optional_COMPILER_MSVC_VERSION   (_MSC_VER / 100 - 5 - (_MSC_VER < 1900))
@@ -37,6 +37,17 @@ CASE( "optional-bare version" "[.version]" )
     optional_PRESENT( optional_bare_MINOR );
     optional_PRESENT( optional_bare_PATCH );
     optional_PRESENT( optional_bare_VERSION );
+}
+
+CASE( "optional-bare configuration" "[.optional][.config]" )
+{
+    optional_PRESENT( optional_HAVE_STD_OPTIONAL );
+    optional_PRESENT( optional_USES_STD_OPTIONAL );
+    optional_PRESENT( optional_CONFIG_SELECT_OPTIONAL );
+    optional_PRESENT( optional_OPTIONAL_DEFAULT );
+    optional_PRESENT( optional_OPTIONAL_NONSTD );
+    optional_PRESENT( optional_OPTIONAL_STD );
+    optional_PRESENT( optional_CPLUSPLUS );
 }
 
 CASE( "__cplusplus" "[.stdc++]" )

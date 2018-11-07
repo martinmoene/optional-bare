@@ -16,6 +16,9 @@ set( optional_bare_version "1.0.0" )
 option( OPTIONAL_BARE_OPT_BUILD_TESTS    "Build and perform optional-bare tests" OFF )
 option( OPTIONAL_BARE_OPT_BUILD_EXAMPLES "Build optional-bare examples" OFF )
 
+option( OPTIONAL_BARE_OPT_SELECT_STD     "Select std::optional"    OFF )
+option( OPTIONAL_BARE_OPT_SELECT_NONSTD  "Select nonstd::optional" OFF )
+
 project( optional_bare LANGUAGES CXX )
 
 include( GNUInstallDirs )
