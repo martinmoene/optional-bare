@@ -32,7 +32,7 @@
 // Note: VC14.0/1900 (VS2015) lacks too much from C++14.
 
 #ifndef   optional_CPLUSPLUS
-# ifdef  _MSVC_LANG
+# if defined(_MSVC_LANG ) && !defined(__clang__)
 #  define optional_CPLUSPLUS  (_MSC_VER == 1900 ? 201103L : _MSVC_LANG )
 # else
 #  define optional_CPLUSPLUS  __cplusplus
