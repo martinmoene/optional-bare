@@ -7,23 +7,11 @@
 
 #include "optional-main.t.hpp"
 
-#if defined(_MSC_VER) && !defined(__clang__)
-# define optional_COMPILER_MSVC_VERSION   (_MSC_VER / 100 - 5 - (_MSC_VER < 1900))
-#else
-# define optional_COMPILER_MSVC_VERSION   0
-#endif
-
-#if defined(__GNUC__) && !defined(__clang__)
-# define optional_COMPILER_GNUC_VERSION  __GNUC__
-#else
-# define optional_COMPILER_GNUC_VERSION    0
-#endif
-
 #define optional_PRESENT( x ) \
     std::cout << #x << ": " << x << "\n"
 
-#define optional_ABSENT( x ) \
-    std::cout << #x << ": (undefined)\n"
+//#define optional_ABSENT( x ) 
+//    std::cout << #x << ": (undefined)\n"
 
 lest::tests & specification()
 {
@@ -57,16 +45,13 @@ CASE( "__cplusplus" "[.stdc++]" )
 
 CASE( "compiler version" "[.compiler]" )
 {
-#if optional_COMPILER_GNUC_VERSION
-    optional_PRESENT( optional_COMPILER_GNUC_VERSION );
+#if optional_USES_STD_OPTIONAL
+    std::cout << "(Compiler version not available: using std::optional)\n";
 #else
-    optional_ABSENT(  optional_COMPILER_GNUC_VERSION );
-#endif
-
-#if optional_COMPILER_MSVC_VERSION
-    optional_PRESENT( optional_COMPILER_MSVC_VERSION );
-#else
-    optional_ABSENT(  optional_COMPILER_MSVC_VERSION );
+    std::cout << "(Compiler version not available with optional bare, nonstd::optional)\n";
+//    optional_PRESENT( optional_COMPILER_CLANG_VERSION );
+//    optional_PRESENT( optional_COMPILER_GNUC_VERSION );
+//    optional_PRESENT( optional_COMPILER_MSVC_VERSION );
 #endif
 }
 

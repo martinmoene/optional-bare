@@ -204,10 +204,17 @@ public:
             value_;
     }
 
+#if optional_CPP11_OR_GREATER
+    explicit operator bool() const
+    {
+        return has_value();
+    }
+#else
     operator safe_bool() const
     {
         return has_value() ? &optional::this_type_does_not_support_comparisons : 0;
     }
+#endif
 
     bool has_value() const
     {

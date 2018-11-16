@@ -9,10 +9,13 @@
 
 #include "optional-main.t.hpp"
 
-using nonstd::optional;
-using nonstd::nullopt;
-using nonstd::bad_optional_access;
-using nonstd::make_optional;
+using namespace nonstd;
+
+#if optional_USES_STD_OPTIONAL && defined(__APPLE__)
+# define opt_value( o ) *o
+#else
+# define opt_value( o )  o.value()
+#endif
 
 namespace {
 
@@ -33,7 +36,7 @@ struct S
 struct NoDefaultCopyMove
 {
     std::string text;
-    NoDefaultCopyMove( std::string text ) : text( text ) {}
+    NoDefaultCopyMove( std::string txt ) : text( txt ) {}
 
 private:
     NoDefaultCopyMove();
@@ -230,7 +233,7 @@ CASE( "optional: Allows to swap with other optional (member)" )
 
 // observers:
 
-struct Integer { int x; Integer(int x) : x(x) {} };
+struct Integer { int x; Integer(int v) : x(v) {} };
 
 CASE( "optional: Allows to obtain pointer to value via operator->()" )
 {
@@ -284,11 +287,11 @@ CASE( "optional: Allows to obtain value via value()" )
         optional<int> e( 42 );
 
     SECTION( "value() yields value (const)" ) {
-        EXPECT( e.value() == 42 );
+        EXPECT( opt_value( e ) == 42 );
     }
     SECTION( "value() yields value (non-const)" ) {
-        e.value() = 7;
-        EXPECT( e.value() == 7 );
+        opt_value( e ) = 7;
+        EXPECT( opt_value( e ) == 7 );
     }}
 }
 
@@ -308,7 +311,7 @@ CASE( "optional: Allows to obtain value or default via value_or()" )
 
 CASE( "optional: Throws bad_optional_access at disengaged access" )
 {
-    EXPECT_THROWS_AS( optional<int>().value(), bad_optional_access );
+    EXPECT_THROWS_AS( opt_value( optional<int>() ), bad_optional_access );
 }
 
 // modifiers:
@@ -428,7 +431,7 @@ CASE( "optional: Provides relational operators" )
 
 CASE( "optional: Provides mixed-type relational operators" )
 {
-    relop<char, int, double>( lest_env );
+    relop<char, int, long>( lest_env );
 }
 
 CASE( "make_optional: Allows to copy-construct optional" )
