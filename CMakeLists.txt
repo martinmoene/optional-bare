@@ -7,19 +7,27 @@
 
 cmake_minimum_required( VERSION 3.5 )
 
-# optional-bare version, updated by script/update-version.py:
+# optional-bare project and version, updated by script/update-version.py:
+
+project( optional_bare LANGUAGES CXX )
 
 set( optional_bare_version "1.0.0" )
 
+# Toplevel or subproject:
+
+if ( CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR )
+    set( optional_IS_TOPLEVEL_PROJECT TRUE )
+else()
+    set( optional_IS_TOPLEVEL_PROJECT FALSE )
+endif()
+
 # Enable building and performing of tests and building of examples:
 
-option( OPTIONAL_BARE_OPT_BUILD_TESTS    "Build and perform optional-bare tests" OFF )
+option( OPTIONAL_BARE_OPT_BUILD_TESTS    "Build and perform optional-bare tests" ${optional_IS_TOPLEVEL_PROJECT} )
 option( OPTIONAL_BARE_OPT_BUILD_EXAMPLES "Build optional-bare examples" OFF )
 
 option( OPTIONAL_BARE_OPT_SELECT_STD     "Select std::optional"    OFF )
 option( OPTIONAL_BARE_OPT_SELECT_NONSTD  "Select nonstd::optional" OFF )
-
-project( optional_bare LANGUAGES CXX )
 
 include( GNUInstallDirs )
 
