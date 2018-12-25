@@ -9,9 +9,14 @@ cmake_minimum_required( VERSION 3.5 )
 
 # optional-bare project and version, updated by script/update-version.py:
 
-project( optional_bare LANGUAGES CXX )
+project(
+    optional_bare
+    VERSION 1.0.0
+    DESCRIPTION "A simple version of a C++17-like optional for default-constructible, copyable types, for C++98 and later in a single-file header-only library"
+#   HOMEPAGE_URL "https://github.com/martinmoene/optional-bare"
+    LANGUAGES CXX )
 
-set( optional_bare_version "1.0.0" )
+set( ${PROJECT_NAME}_version "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}" )
 
 # Toplevel or subproject:
 
@@ -21,7 +26,7 @@ else()
     set( optional_IS_TOPLEVEL_PROJECT FALSE )
 endif()
 
-# Enable building and performing of tests and building of examples:
+# If toplevel project, enable building and performing of tests, disable building of examples:
 
 option( OPTIONAL_BARE_OPT_BUILD_TESTS    "Build and perform optional-bare tests" ${optional_IS_TOPLEVEL_PROJECT} )
 option( OPTIONAL_BARE_OPT_BUILD_EXAMPLES "Build optional-bare examples" OFF )
