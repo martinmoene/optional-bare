@@ -12,7 +12,7 @@ cmake_minimum_required( VERSION 3.5 )
 project(
     optional_bare
     VERSION 1.0.0
-    DESCRIPTION "A simple version of a C++17-like optional for default-constructible, copyable types, for C++98 and later in a single-file header-only library"
+#   DESCRIPTION "A simple version of a C++17-like optional for default-constructible, copyable types, for C++98 and later in a single-file header-only library"
 #   HOMEPAGE_URL "https://github.com/martinmoene/optional-bare"
     LANGUAGES CXX )
 
