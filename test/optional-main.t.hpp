@@ -2,7 +2,7 @@
 //
 // https://github.com/martinmoene/optional-bare
 //
-// Distributed under the Boost Software License, Version 1.0. 
+// Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #pragma once
@@ -10,7 +10,7 @@
 #ifndef TEST_OPTIONAL_BARE_H_INCLUDED
 #define TEST_OPTIONAL_BARE_H_INCLUDED
 
-#include "optional.hpp"
+#include "nonstd/optional.hpp"
 
 // Compiler warning suppression for usage of lest:
 
