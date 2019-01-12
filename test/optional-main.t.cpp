@@ -31,10 +31,11 @@ CASE( "optional-bare configuration" "[.optional][.config]" )
 {
     optional_PRESENT( optional_HAVE_STD_OPTIONAL );
     optional_PRESENT( optional_USES_STD_OPTIONAL );
-    optional_PRESENT( optional_CONFIG_SELECT_OPTIONAL );
     optional_PRESENT( optional_OPTIONAL_DEFAULT );
     optional_PRESENT( optional_OPTIONAL_NONSTD );
     optional_PRESENT( optional_OPTIONAL_STD );
+    optional_PRESENT( optional_CONFIG_SELECT_OPTIONAL );
+    optional_PRESENT( optional_CONFIG_NO_EXCEPTIONS );
     optional_PRESENT( optional_CPLUSPLUS );
 }
 

@@ -3,7 +3,7 @@
 //
 // https://github.com/martinmoene/optional-bare
 //
-// Distributed under the Boost Software License, Version 1.0. 
+// Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #ifndef NONSTD_OPTIONAL_BARE_HPP
@@ -26,6 +26,16 @@
 
 #if !defined( optional_CONFIG_SELECT_OPTIONAL )
 # define optional_CONFIG_SELECT_OPTIONAL  ( optional_HAVE_STD_OPTIONAL ? optional_OPTIONAL_STD : optional_OPTIONAL_NONSTD )
+#endif
+
+// Control presence of exception handling (try and auto discover):
+
+#ifndef optional_CONFIG_NO_EXCEPTIONS
+# if defined(__cpp_exceptions) || defined(__EXCEPTIONS) || defined(_CPPUNWIND)
+#  define optional_CONFIG_NO_EXCEPTIONS  0
+# else
+#  define optional_CONFIG_NO_EXCEPTIONS  1
+# endif
 #endif
 
 // C++ language version detection (C++20 is speculative):
@@ -101,7 +111,10 @@ namespace nonstd {
 #else // optional_USES_STD_OPTIONAL
 
 #include <cassert>
-#include <stdexcept>
+
+#if ! optional_CONFIG_NO_EXCEPTIONS
+# include <stdexcept>
+#endif
 
 namespace nonstd { namespace optional_bare {
 
@@ -119,12 +132,16 @@ const nullopt_t nullopt(( nullopt_t::init() ));
 
 // optional access error.
 
+#if ! optional_CONFIG_NO_EXCEPTIONS
+
 class bad_optional_access : public std::logic_error
 {
 public:
   explicit bad_optional_access()
   : logic_error( "bad optional access" ) {}
 };
+
+#endif // optional_CONFIG_NO_EXCEPTIONS
 
 // Simplistic optional: requires T to be default constructible, copyable.
 
@@ -223,17 +240,23 @@ public:
 
     value_type const & value() const
     {
+#if optional_CONFIG_NO_EXCEPTIONS
+        assert( has_value() );
+#else
         if ( ! has_value() )
             throw bad_optional_access();
-
+#endif
         return value_;
     }
 
     value_type & value()
     {
+#if optional_CONFIG_NO_EXCEPTIONS
+        assert( has_value() );
+#else
         if ( ! has_value() )
             throw bad_optional_access();
-
+#endif
         return value_;
     }
 

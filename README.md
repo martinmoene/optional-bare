@@ -103,6 +103,17 @@ The following table gives an overview of what is **not provided** by *optional b
 | **Other**    | std::**hash**&lt;nonstd::optional> | std::hash<> requires C++11|
 
 
+### Configuration
+
+#### Standard selection macro
+\-D<b>optional\_CPLUSPLUS</b>=199711L
+Define this macro to override the auto-detection of the supported C++ standard, if your compiler does not set the `__cplusplus` macro correctly.
+
+#### Disable exceptions
+-D<b>optional_CONFIG_NO_EXCEPTIONS</b>=0
+Define this to 1 if you want to compile without exceptions. If not defined, the header tries and detect if exceptions have been disabled (e.g. via `-fno-exceptions`). Default is undefined.
+
+
 Building the tests
 ------------------
 To build the tests you need:

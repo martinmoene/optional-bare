@@ -23,7 +23,8 @@
 		<Unit filename="../../appveyor.yml" />
 		<Unit filename="../../cmake/optional-bare-config.cmake.in" />
 		<Unit filename="../../conanfile.py" />
-		<Unit filename="../../examples/01-to_int.cpp" />
+		<Unit filename="../../example/01-to_int.cpp" />
+		<Unit filename="../../example/02-no-exceptions.cpp" />
 		<Unit filename="../../include/nonstd/optional.hpp" />
 		<Unit filename="../../script/update-version.py" />
 		<Unit filename="../../test/CMakeLists.txt" />
