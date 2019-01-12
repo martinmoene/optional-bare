@@ -17,7 +17,7 @@ STD_OPTION = -std=$(STD)
 endif
 
 CXX = g++
-CXXFLAGS = $(STD_OPTION) -Wall -I../include/nonstd/ # -Wextra
+CXXFLAGS = $(STD_OPTION) -Wall -I../include/ # -Wextra
 
 all: $(PROGRAM)
 
