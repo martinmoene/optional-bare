@@ -9,7 +9,8 @@ cmake_minimum_required( VERSION 3.5 )
 
 project( test LANGUAGES CXX )
 
-set( PACKAGE   ${package_name} )
+set( unit_name "optional" )
+set( PACKAGE   ${unit_name}-bare )
 set( PROGRAM   ${unit_name}-bare )
 set( SOURCES   ${unit_name}-main.t.cpp ${unit_name}.t.cpp )
 
