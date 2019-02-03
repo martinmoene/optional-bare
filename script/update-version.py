@@ -35,6 +35,10 @@ table = (
 #        , r'\optional_bare_version\s+=\s+"([0-9]+\.[0-9]+\.[0-9]+)"\s*$'
 #        , 'optional_bare_version = "{major}.{minor}.{patch}"\n' )
 
+    , ( 'conanfile.py'
+        , r'version\s+=\s+"([0-9]+\.[0-9]+\.[0-9]+)"\s*$'
+        , 'version = "{major}.{minor}.{patch}"' )
+
     , ( 'include/nonstd/optional.hpp'
         , r'\#define\s+optional_bare_MAJOR\s+[0-9]+\s*$'
         , '#define optional_bare_MAJOR  {major}' )
