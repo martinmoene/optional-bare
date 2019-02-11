@@ -26,6 +26,7 @@
 		<Unit filename="../../example/01-to_int.cpp" />
 		<Unit filename="../../example/02-no-exceptions.cpp" />
 		<Unit filename="../../include/nonstd/optional.hpp" />
+		<Unit filename="../../script/create-vcpkg.py" />
 		<Unit filename="../../script/update-version.py" />
 		<Unit filename="../../script/upload-conan.py" />
 		<Unit filename="../../test/CMakeLists.txt" />
