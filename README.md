@@ -170,7 +170,12 @@ Notes and references
 
 Appendix
 --------
-### A.1 Optional Bare test specification
+
+### A.1 Compile-time information
+
+The version of *optional bare* is available via tag `[.version]`. The following tags are available for information on the compiler and on the C++ standard library used: `[.compiler]`, `[.stdc++]`, `[.stdlanguage]` and `[.stdlibrary]`.
+
+### A.2 Optional Bare test specification
 
 ```
 optional: Allows to default construct an empty optional
