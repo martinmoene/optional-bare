@@ -17,7 +17,7 @@
 Example usage
 -------------
 ```C++
-#include "optional.hpp"
+#include "nonstd/optional.hpp"
 
 #include <cstdlib>
 #include <iostream>
@@ -45,7 +45,7 @@ int main( int argc, char * argv[] )
 ```
 ### Compile and run
 ```
-prompt>g++ -Wall -Wextra -std=c++03 -I.. -o to_int.exe to_int.cpp && to_int x1
+prompt>g++ -Wall -Wextra -std=c++03 -I../include -o 01-to_int.exe 01-to_int.cpp && 01-to_int x1
 'x1' isn't a number
 ```
 In a nutshell
