@@ -106,7 +106,7 @@ The following table gives an overview of what is **not provided** by *optional b
 ### Configuration
 
 #### Standard selection macro
-\-D<b>optional\_CPLUSPLUS</b>=199711L
+\-D<b>optional\_CPLUSPLUS</b>=199711L  
 Define this macro to override the auto-detection of the supported C++ standard, if your compiler does not set the `__cplusplus` macro correctly.
 
 #### Select `std::optional` or `nonstd::optional`
