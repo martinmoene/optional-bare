@@ -10,7 +10,7 @@
 #define NONSTD_OPTIONAL_BARE_HPP
 
 #define optional_bare_MAJOR  1
-#define optional_bare_MINOR  0
+#define optional_bare_MINOR  1
 #define optional_bare_PATCH  0
 
 #define optional_bare_VERSION  optional_STRINGIFY(optional_bare_MAJOR) "." optional_STRINGIFY(optional_bare_MINOR) "." optional_STRINGIFY(optional_bare_PATCH)
