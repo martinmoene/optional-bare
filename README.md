@@ -197,6 +197,7 @@ optional: Allows to copy-assign from/to engaged and disengaged optionals
 optional: Allows to copy-assign from literal value
 optional: Allows to copy-assign from value
 optional: Allows to copy-assign from optional with different value type
+optional: Allows to copy-assign from empty optional with different value type
 optional: Allows to swap with other optional (member)
 optional: Allows to obtain pointer to value via operator->()
 optional: Allows to obtain value via operator*()
