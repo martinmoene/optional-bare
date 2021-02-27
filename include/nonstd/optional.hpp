@@ -176,8 +176,10 @@ public:
     template< class U >
     optional( optional<U> const & other )
     : has_value_( other.has_value() )
-    , value_    ( other.value()     )
-    {}
+    {
+        if ( other.has_value() )
+            value_ = other.value();
+    }
 
     optional & operator=( nullopt_t )
     {

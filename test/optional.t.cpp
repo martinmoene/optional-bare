@@ -86,7 +86,7 @@ CASE( "optional: Allows to copy-construct from empty optional" )
 
     optional<int> b( a );
 
-    EXPECT( !b );
+    EXPECT_NOT( b );
 }
 
 CASE( "optional: Allows to copy-construct from non-empty optional" )
@@ -122,6 +122,17 @@ CASE( "optional: Allows to copy-construct from optional with different value typ
 
     EXPECT(  a      );
     EXPECT( *a == 7 );
+}
+
+// issue #2:
+
+CASE( "optional: Allows to copy-construct from empty optional with different value type" )
+{
+    optional<char> a;
+
+    optional<int> b( a );
+
+    EXPECT_NOT( b );
 }
 
 // assignment:
