@@ -191,6 +191,7 @@ optional: Allows to copy-construct from non-empty optional
 optional: Allows to copy-construct from literal value
 optional: Allows to copy-construct from value
 optional: Allows to copy-construct from optional with different value type
+optional: Allows to copy-construct from empty optional with different value type
 optional: Allows to assign nullopt to disengage
 optional: Allows to copy-assign from/to engaged and disengaged optionals
 optional: Allows to copy-assign from literal value
