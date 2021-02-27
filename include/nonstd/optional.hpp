@@ -191,7 +191,8 @@ public:
     optional & operator=( optional<U> const & other )
     {
         has_value_ = other.has_value();
-        value_     = other.value();
+        if ( other.has_value() )
+            value_ = other.value();
         return *this;
     }
 

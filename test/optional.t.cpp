@@ -207,6 +207,17 @@ CASE( "optional: Allows to copy-assign from optional with different value type" 
     EXPECT( *a == 7 );
 }
 
+// issue #2:
+
+CASE( "optional: Allows to copy-assign from empty optional with different value type" )
+{
+    optional<int> a;
+
+    a = optional<char>();
+
+    EXPECT_NOT( a );
+}
+
 // swap:
 
 CASE( "optional: Allows to swap with other optional (member)" )
